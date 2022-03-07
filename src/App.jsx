@@ -1,22 +1,11 @@
-import { useState } from "react";
 import "./tailwind.css";
+import { Counter } from "./features/counter/Counter";
 
-function App() {
-  const [count, setCount] = useState(0);
-
-  console.log(
-    "env",
-    import.meta.env.VITE_CLIENT_ID,
-    import.meta.env.VITE_CLIENT_SECRET
-  );
-
+const App = () => {
   return (
     <main>
-      <div className="flex items-center justify-center w-screen h-screen">
-        <div className="w-20 h-20 bg-slate-500"></div>
-        <div className="w-20 h-20 bg-red-500"></div>
-      </div>
+      <Counter />
     </main>
   );
-}
+};
 export default App;
