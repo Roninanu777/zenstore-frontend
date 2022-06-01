@@ -1,11 +1,6 @@
 import "./tailwind.css";
-import { Counter } from "./features/counter/Counter";
 
 const App = () => {
-  return (
-    <main>
-      <Counter />
-    </main>
-  );
+  return <main></main>;
 };
 export default App;
