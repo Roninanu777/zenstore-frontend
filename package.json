@@ -1,6 +1,6 @@
 {
   "name": "zenstore-frontend",
-  "private": false,
+  "private": "true",
   "version": "0.0.0",
   "scripts": {
     "dev": "npm run watch:css && vite",
