@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Button, Label, TextInput, Checkbox, Card } from "flowbite-react";
 import InputField from "../../components/inputField/InputField";
 import Validate from "../../helper/Validate";
 import UseForm from "../../hooks/UseForm";
@@ -7,64 +8,68 @@ const Login = () => {
   const { handleChange, values, handleSubmit, errors } = UseForm(Validate);
 
   return (
-    <div className="flex h-screen">
-      <div className="h-full basis-2/4 bg-blend-darken"></div>
-      <div className="flex items-center justify-center h-screen p-6 basis-2/4">
+    <div className="flex flex-col items-center justify-center w-screen h-screen">
+      <h1 className="mb-5 text-3xl font-semibold">Welcome back!</h1>
+      <Card>
         <form id="form" className="w-96">
-          <div className="">
-            <h2 className="text-4xl font-medium text-left">Welcome back</h2>
-            <p className="tracking-wide text-left font-lg font-extralight">
-              Welcome back! Please enter your details
-            </p>
-          </div>
-
-          <div className="mt-8">
-            <InputField
-              type="text"
-              label="Username"
-              name="username"
-              id="username"
-              value={values.username}
-              onChange={handleChange}
-              placeholder="Enter your username"
+          <div className="flex flex-col mb-6">
+            <Label className="self-start mb-2 text-base" htmlFor="email1">
+              Your email
+            </Label>
+            <TextInput
+              id="email1"
+              type="email"
+              placeholder="name@flowbite.com"
+              shadow={true}
+              required={true}
             />
-            <p>{errors.username}</p>
           </div>
 
-          <div className="mt-8">
-            <InputField
-              type="password"
-              label="Password"
-              name="password"
+          <div className="flex flex-col mb-6">
+            <Label className="self-start mb-2 text-base" htmlFor="password">
+              Password
+            </Label>
+            <TextInput
               id="password"
-              value={values.password}
-              onChange={handleChange}
-              placeholder="Enter your password"
+              type="password"
+              placeholder="password"
+              shadow={true}
+              required={true}
             />
-            <p>{errors.password}</p>
           </div>
 
-          <div className="flex justify-end mt-5">
-            <a href="#">Forgot password</a>
+          <div className="flex items-center mb-6 space-x-2">
+            <Checkbox id="agree" />
+            <Label htmlFor="agree">
+              I agree with the{" "}
+              <a
+                href="/forms"
+                className="text-blue-600 hover:underline dark:text-blue-500"
+              >
+                terms and conditions
+              </a>
+            </Label>
           </div>
 
-          <div className="mt-2">
-            <button
+          <div className="flex mt-2">
+            <Button
+              color="dark"
+              size="md"
+              className="flex-grow"
               onClick={handleSubmit}
-              className="w-full py-2 font-semibold text-center transition-colors duration-200 ease-in-out border rounded border-slate-800 hover:bg-slate-800 hover:text-white"
             >
-              Sign in{" "}
-            </button>
+              Sign in
+            </Button>
           </div>
 
-          <div className="flex items-center justify-center mt-5">
+          <div className="flex items-center mt-5 space-x-1">
             <p className="text-sm">Don't have an account?</p>
-            <a href="#" className="inline-block ml-1 text-sm font-semibold ">
+            <a href="/signup" className="inline-block text-sm font-semibold ">
               Sign up for free
             </a>
           </div>
         </form>
-      </div>
+      </Card>
     </div>
   );
 };
