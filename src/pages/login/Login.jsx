@@ -5,7 +5,9 @@ import Validate from "../../helper/Validate";
 import UseForm from "../../hooks/UseForm";
 
 const Login = () => {
-  const { handleChange, values, handleSubmit, errors } = UseForm(Validate);
+  const handleChange = (e) => {
+    console.log(e.target.value);
+  };
 
   return (
     <div className="flex flex-col items-center justify-center w-screen h-screen">
@@ -17,6 +19,7 @@ const Login = () => {
               Your email
             </Label>
             <TextInput
+              onChange={handleChange}
               id="email1"
               type="email"
               placeholder="name@flowbite.com"
@@ -52,12 +55,7 @@ const Login = () => {
           </div>
 
           <div className="flex mt-2">
-            <Button
-              color="dark"
-              size="md"
-              className="flex-grow"
-              onClick={handleSubmit}
-            >
+            <Button color="dark" size="md" className="flex-grow">
               Sign in
             </Button>
           </div>
