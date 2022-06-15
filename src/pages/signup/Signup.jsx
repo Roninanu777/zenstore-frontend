@@ -1,20 +1,40 @@
 import React, { useState } from "react";
-import { Button, Label, TextInput, Checkbox, Card } from "flowbite-react";
-import InputField from "../../components/inputField/InputField";
-import { LoginForm } from "../../hooks/UseForm";
-import { loginValidate } from "../../helper/Validate";
+import { Button, Label, TextInput, Card } from "flowbite-react";
+import { SignupForm } from "../../hooks/UseForm";
+import { signupValidate } from "../../helper/Validate";
 
-const Login = () => {
-	const { handleChange, values, handleSubmit, errors } = LoginForm(loginValidate);
+const Signup = () => {
+	const { handleChange, values, handleSubmit, errors } = SignupForm(signupValidate);
 
 	return (
 		<div className="flex flex-col items-center justify-center w-screen h-screen">
-			<h1 className="mb-5 text-3xl font-semibold">Welcome back!</h1>
+			<h1 className="mb-5 text-3xl font-semibold">Welcome</h1>
 			<Card>
 				<form id="form" className="w-96">
 					<div className="flex flex-col mb-6">
+						<Label className="self-start mb-2 text-base" htmlFor="username">
+							Enter a username
+						</Label>
+						<TextInput
+							id="username"
+							type="text"
+							value={values.username}
+							onChange={handleChange}
+							placeholder="johndoe123"
+							shadow={true}
+							required={true}
+							helperText={
+								<React.Fragment>
+									<span className="text-sm text-red-600 font-semibold">
+										{errors.username}
+									</span>
+								</React.Fragment>
+							}
+						/>
+					</div>
+					<div className="flex flex-col mb-6">
 						<Label className="self-start mb-2 text-base" htmlFor="email1">
-							Your email
+							Enter your email
 						</Label>
 						<TextInput
 							id="email1"
@@ -36,7 +56,7 @@ const Login = () => {
 
 					<div className="flex flex-col mb-6">
 						<Label className="self-start mb-2 text-base" htmlFor="password">
-							Password
+							Choose your password
 						</Label>
 						<TextInput
 							id="password"
@@ -57,21 +77,16 @@ const Login = () => {
 						/>
 					</div>
 
-					<div className="flex items-center mb-6 space-x-2">
-						<Checkbox id="agree" />
-						<Label htmlFor="agree">Remember me</Label>
-					</div>
-
 					<div className="flex mt-2">
 						<Button color="dark" size="md" className="flex-grow" onClick={handleSubmit}>
-							Sign in
+							Sign up
 						</Button>
 					</div>
 
 					<div className="flex justify-center mt-5 space-x-1">
-						<p className="text-sm">Don't have an account?</p>
+						<p className="text-sm">Already have an account?</p>
 						<a href="/signup" className="inline-block text-sm font-semibold ">
-							Sign up for free
+							Sign in
 						</a>
 					</div>
 				</form>
@@ -80,4 +95,4 @@ const Login = () => {
 	);
 };
 
-export default Login;
+export default Signup;

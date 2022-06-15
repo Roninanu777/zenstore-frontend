@@ -1,4 +1,26 @@
-export default function Validate(values, login) {
+export const loginValidate = (values, login) => {
+   let errors = {};
+   const regex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/i;
+
+   if (!login) {
+      if (!values.email) {
+         errors.email = "Email required.";
+      } else if (!regex.test(values.email)) {
+         errors.email = "Enter a valid email address."
+      }
+   }
+
+   if (!values.password) {
+      errors.password = "Password required."
+   } else if (values.password.length < 6) {
+      errors.password = "Password must be atleast of 6 characters."
+   }
+
+   return errors;
+
+}
+
+export const signupValidate = (values, login) => {
    let errors = {};
    const regex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/i;
 
@@ -8,13 +30,13 @@ export default function Validate(values, login) {
       errors.username = "Enter characters only."
    }
 
-   // if (!login) {
-   //    if (!values.email) {
-   //       errors.email = "Email required.";
-   //    } else if (!regex.test(values.email)) {
-   //       errors.email = "Enter a valid email address."
-   //    }
-   // }
+   if (!login) {
+      if (!values.email) {
+         errors.email = "Email required.";
+      } else if (!regex.test(values.email)) {
+         errors.email = "Enter a valid email address."
+      }
+   }
 
    if (!values.password) {
       errors.password = "Password required."
