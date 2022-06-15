@@ -3,12 +3,12 @@ import Signup from "./pages/signup/Signup";
 import "./tailwind.css";
 
 const App = () => {
-   return (
-      <main>
-         <div className="text-center">
-            <Login />
-         </div>
-      </main>
-   );
+  return (
+    <main>
+      <div className="text-center">
+        <Signup />
+      </div>
+    </main>
+  );
 };
 export default App;
