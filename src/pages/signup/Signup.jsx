@@ -18,17 +18,16 @@ const Signup = () => {
 						<TextInput
 							id="username"
 							type="text"
+							name="username"
 							value={values.username}
 							onChange={handleChange}
 							placeholder="johndoe123"
 							shadow={true}
 							required={true}
 							helperText={
-								<React.Fragment>
-									<span className="text-sm text-red-600 font-semibold">
-										{errors.username}
-									</span>
-								</React.Fragment>
+								<span className="block text-left odd:text-sm text-red-600">
+									{errors.username}
+								</span>
 							}
 						/>
 					</div>
@@ -39,17 +38,14 @@ const Signup = () => {
 						<TextInput
 							id="email1"
 							type="email"
+							name="email"
 							value={values.email}
 							onChange={handleChange}
 							placeholder="name@flowbite.com"
 							shadow={true}
 							required={true}
 							helperText={
-								<React.Fragment>
-									<span className="text-sm text-red-600 font-semibold">
-										{errors.email}
-									</span>
-								</React.Fragment>
+								<span className="block text-left text-sm text-red-600">{errors.email}</span>
 							}
 						/>
 					</div>
@@ -61,18 +57,16 @@ const Signup = () => {
 						<TextInput
 							id="password"
 							type="password"
+							name="password"
 							value={values.password}
 							onChange={handleChange}
 							placeholder="password"
 							shadow={true}
 							required={true}
 							helperText={
-								<React.Fragment>
-									<span className="text-sm text-left font-semibold text-red-600">
-										{""}
-										{errors.password}
-									</span>
-								</React.Fragment>
+								<span className="block text-sm text-left text-red-600">
+									{errors.password}
+								</span>
 							}
 						/>
 					</div>
@@ -85,7 +79,7 @@ const Signup = () => {
 
 					<div className="flex justify-center mt-5 space-x-1">
 						<p className="text-sm">Already have an account?</p>
-						<a href="/signup" className="inline-block text-sm font-semibold ">
+						<a href="/login" className="inline-block text-sm font-semibold ">
 							Sign in
 						</a>
 					</div>
